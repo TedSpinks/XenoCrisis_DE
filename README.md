@@ -2,19 +2,19 @@
 
 A **Mega Drive / Genesis** ROM hack that brings together the best features of Xeno Crisis's later ports, and adds arcade-style high score tables for both difficulties.
 
-- **Roll while firing!** Pick your roll and fire cancel rules: Modern, Dreamcast, or the original MD/Genesis behaviour.
+- **Roll while firing!** With your choice of rules: Modern or Dreamcast.
 - **The missing HUD!** Pausing shows all the stats the widescreen versions keep at the sides of the screen, plus both players' scores, the high score, and the difficulty.
-- **Arcade scoring!** Every version but one combines both players into a single score — the Neo Geo version started to fix that; this hack finishes the job.
+- **Arcade scoring!** The Neo Geo's split P1/P2 scores, which no other version has, plus a single-credit rule so high scores compare like for like.
 - **High score tables for Easy and Hard,** including how far each credit got, saved to SRAM.
-- **ALL the voice clips and story narration** played as CD audio over MD+. This not only adds all the voice samples from the modern versions, but also narration for all the cutscenes, which AFAIK was unique to the Neo Geo. You'll want to purchase the [Neo Geo ROM](https://shop.bitmapbureau.com/products/xeno-crisis-neo-geo-aes-mvs-rom-download) to rip the voice clips.
+- **ALL the voice clips and story narration** played as CD audio over MD+: every clip from the modern ports, plus the Neo Geo's exclusive cutscene narration. You'll want to purchase the [Neo Geo ROM](https://shop.bitmapbureau.com/products/xeno-crisis-neo-geo-aes-mvs-rom-download) to extract them.
 
 Includes both an all-in-one patch and separate patches: take everything, pick just the features you want, or mix them with other mods.
 
 ## Roll and fire cancel rules
 
-Every version of Xeno Crisis lets you cancel a roll by pressing roll a second time. The Dreamcast version changed how roll and fire interact, for its Twin Stick peripheral: roll takes priority over shooting, so you get a full roll even while holding fire. The modern console versions kept that, and also let a fresh press of fire cancel a roll. Options > CANCEL RULES lets you pick **MODERN** (the default), **DREAMCAST**, or the original **MD/GENESIS** behaviour.
+Every version of Xeno Crisis lets you cancel a roll by pressing roll a second time. The Dreamcast version changed how roll and fire interact, for its Twin Stick peripheral: roll takes priority over shooting, so you get a full roll even while holding fire. The modern console versions kept that, and also let a fresh press of fire cancel a roll. Options > CANCEL RULES lets you pick **MODERN** (the default), **DREAMCAST**, or the original **MD/GENESIS** behaviour, where you can't roll while firing.
 
-I find that with MODERN rules, I sometimes cancel a roll when I don't mean to (by changing fire directions), so I actually prefer DREAMCAST rules.
+I find that with MODERN rules, I sometimes cancel a roll when I don't mean to (by changing fire directions), so I personally prefer DREAMCAST rules.
 
 ## Arcade scoring
 
