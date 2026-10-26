@@ -52,7 +52,7 @@ There are also new Options > AUDIO menu items allowing you to play the CD VOICE 
 
 Start from the [Mega Drive / Genesis ROM](https://shop.bitmapbureau.com/products/xeno-crisis-sega-mega-drive-genesis-rom-download), v1.0.0 (CRC32 `AC5F4CCA`). Use a patcher such as Floating IPS or [RomPatcher.js](https://www.marcrobledo.com/RomPatcher.js/). The all-in-one patch is a .bps, which checks that you have the right ROM before patching.
 
-**Pick one** (the files are named `XenoCrisis_DefinitiveEdition_v1.0_...`):
+**Pick one** (the files are named `XenoCrisis_DefinitiveEdition_v1.1.0_...`):
 
 - **All-in-one** (`AllInOne.bps`): everything, including the voice support. Why *wouldn't* you want this one!??
 - **2 separate patches:** the main patch (`Main.ips`: controls, scoring, tables, options) and the MD+ Voices patch (`MDPlus_Voices.ips`). Use either on its own, or both, applied in either order. Both together give exactly the same ROM as the all-in-one patch.

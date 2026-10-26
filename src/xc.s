@@ -1219,7 +1219,8 @@ hs_screen_off:
         bra     .r
 .rd:    move.l  #$C0000000,VDP_CTRL
         moveq   #31,d0
-.c:     clr.l   VDP_DATA
+        moveq   #0,d1               ; (not clr.l: a 68000 CLR reads first, and reading the VDP
+.c:     move.l  d1,VDP_DATA         ;  data port in write mode locks up a real console)
         dbra    d0,.c
         move.w  (sp)+,sr
         rts
@@ -1753,10 +1754,13 @@ hs_timer:
         BLOCK sram LOW
 ; Save memory ($200001.., odd bytes) is switched in with $A130F1 and overlaps the upper
 ; 2MB of ROM, so this block lives below $200000 and the Z80 is held off the bus.
+; Uses d0 (both callers save it).
 sram_on:
-        move.w  #$100,$A11100
+        move.w  #$100,$A11100       ; Z80 bus request,
+        move.w  #$100,$A11200       ;  with the Z80 out of reset (as the game always does)
+        move.w  #$3FFF,d0           ; wait for the bus, but never forever (~60 ms at most)
 .w:     btst    #0,$A11100
-        bne   .w
+        dbeq    d0,.w
         move.b  #1,$A130F1
         lea     $200001,a0
         rts
