@@ -12,7 +12,9 @@ Includes both an all-in-one patch and separate patches: take everything, pick ju
 
 ## Roll and fire cancel rules
 
-Every version of Xeno Crisis lets you cancel a roll by pressing roll a second time. The Dreamcast version changed how roll and fire interact, for its Twin Stick peripheral: roll takes priority over shooting, so you get a full roll even while holding fire. The modern console versions kept that, and also let a fresh press of fire cancel a roll. Options > CANCEL RULES lets you pick **MODERN** (the default), **DREAMCAST**, or the original **MD/GENESIS** behaviour, where you can't roll while firing.
+Every version of Xeno Crisis lets you cancel a roll by pressing roll a second time. In the original MD/Genesis version, firing also cancels rolls: holding fire stops you from rolling, and firing mid-roll cuts it short, so you can't roll while shooting.
+
+The Dreamcast version changed how roll and fire interact, for its Twin Stick peripheral: roll takes priority over shooting, so you get a full roll even while holding fire. The modern console versions kept that, and also let a fresh press of fire cancel a roll. Options > CANCEL RULES lets you pick **MODERN** (the default), **DREAMCAST**, or the original **MD/GENESIS** behaviour.
 
 I find that with MODERN rules, I sometimes cancel a roll when I don't mean to (by changing fire directions), so I personally prefer DREAMCAST rules.
 
