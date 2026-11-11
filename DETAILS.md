@@ -101,7 +101,7 @@ There's a 30-second time limit.
 
 - The Neo Geo MAME ROM set v1.0.0 (`XenoCrisis_NG_MAME_v1_0_0.zip`, inside Bitmap Bureau's download). The script also accepts a folder with its files.
 - Python 3.7 or newer. No extra packages are needed.
-- MD+: Genesis Plus GX (RetroArch), or a flash cart with MD+ support.
+- MD+: Genesis Plus GX (RetroArch), MiSTer (MegaDrive core), or a flash cart with MD+ support.
 
 **Voices follow the Options SOUNDS setting.** With sounds off, there are no voices. The intro narration also needs MUSIC on.
 
@@ -140,7 +140,7 @@ The game's own voice samples ("Xeno Crisis", "Room clear", "Area clear" and "Gam
 
 ## Notes
 
-- Tested in Genesis Plus GX (including its MegaSD emulation) and BlastEm, and by a player on a Model 1 Mega Drive with an EverDrive X3. MD+ voices haven't been tested on a real MegaSD yet.
+- Tested in Genesis Plus GX (including its MegaSD emulation) and BlastEm, and by players on a Model 1 Mega Drive with an EverDrive X3 and on MiSTer (MegaDrive core, voices included). MD+ voices haven't been tested on a real MegaSD yet.
 - A finished game is detected when the ending's credits appear during the game. That's been tested from the cheat menu's CREDITS item with the game state set up as a win, not from a real win against the final boss.
 - "It's a trap!" goes with a ring of enemies around the player. The game only uses it in rooms with a particular layout, so it may be very rare (on the Neo Geo too).
 - The new code lives in unused padding inside the ROM (no size change), and the game's own code is only changed at a handful of hook points.
@@ -154,8 +154,8 @@ You only need this if you want to change the hack. You'll need:
 - the clean Mega Drive / Genesis ROM (v1.0.0, CRC32 `AC5F4CCA`)
 
 ```
-python3 src/make_release.py "Xeno Crisis.bin" out 1.1.0    # Main, MD+ Voices and All-in-one
-python3 src/build_controls.py "Xeno Crisis.bin" out 1.1.0  # Controls-only patches
+python3 src/make_release.py "Xeno Crisis.bin" out 1.2.0    # Main, MD+ Voices and All-in-one
+python3 src/build_controls.py "Xeno Crisis.bin" out 1.2.0  # Controls-only patches
 ```
 
 The main code is `src/xc.s`, and the controls-only code is `src/hack.s`. Technical notes on the MD+ voice feature are in [docs/MDPLUS.md](docs/MDPLUS.md).
@@ -163,6 +163,8 @@ The main code is `src/xc.s`, and the controls-only code is `src/hack.s`. Technic
 This repository contains no ROMs or game audio. The patches contain only new code, and the voice script only converts files you already own.
 
 ## Version history
+
+**v1.2.0:** fixes MD+ voices repeating on MiSTer. `xc_voice_extract.py` wrote each track's `REM NOLOOP` before its `INDEX 01` line, and MiSTer's cue reader resets a track to loop when it reads `INDEX 01`, so every voice looped. It now writes `REM NOLOOP` after `INDEX 01`, which works the same in Genesis Plus GX. **The patches are unchanged from v1.1.0** (same checksums); if you already extracted voices, run the new script again (or move each `REM NOLOOP` line below its `INDEX 01` line in the `.cue`). Also clarifies the roll and fire rules and the patching instructions in the README (the zip now keeps the optional patches in an `individual/` folder), and adds credits. Thanks to [zokisyxx](https://github.com/zokisyxx) for reporting and testing on MiSTer.
 
 **v1.1.0:** fixes a freeze on real hardware when a high score table closed (after entering initials, going back from Options > HIGH SCORES, or after the idle table on the title screen). The code that blanks the palette used a 68000 `CLR` on the VDP data port; `CLR` reads before it writes, and reading the VDP data port while it's set up for writing locks up a real console. The save routine also now releases the Z80 from reset before requesting its bus, as the game's own code does, and can't wait forever for it. Saves from v1.0 carry over. Thanks to nazareno4885 for reporting and testing on a Model 1 with an EverDrive X3.
 

@@ -198,8 +198,8 @@ def main():
         print('%2d  %5.1fs  %s' % (t, secs, label))
         cue += ['FILE "%s" WAVE' % name,
                 '  TRACK %02d AUDIO' % t,
-                '    REM NOLOOP',
-                '    INDEX 01 00:00:00']
+                '    INDEX 01 00:00:00',
+                '    REM NOLOOP']       # after INDEX: MiSTer's cue reader resets a track to "loop" at INDEX 01
     cue_path = os.path.join(folder, base + '.cue')
     open(cue_path, 'w', newline='\r\n').write('\n'.join(cue) + '\n')
     print('\nWrote %d tracks (%.0f seconds) and %s' % (len(TRACKS), total, cue_path))

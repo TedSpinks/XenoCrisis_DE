@@ -8,7 +8,7 @@ A **Mega Drive / Genesis** ROM hack that brings together the best features of Xe
 - **High score tables for Easy and Hard,** including how far each credit got, saved to SRAM.
 - **ALL the voice clips and story narration** played as CD audio over MD+: every clip from the modern ports, plus the Neo Geo's exclusive cutscene narration. You'll want to purchase the [Neo Geo ROM](https://shop.bitmapbureau.com/products/xeno-crisis-neo-geo-aes-mvs-rom-download) to extract them.
 
-Includes both an all-in-one patch and separate patches: take everything, pick just the features you want, or mix them with other mods.
+Includes an all-in-one patch with everything, and separate patches if you'd rather pick just the features you want or mix them with other mods.
 
 ## Roll and fire cancel rules
 
@@ -40,7 +40,7 @@ The tables and your options are saved to SRAM, so they're kept in emulators and 
 
 ## Neo Geo voices (MD+)
 
-The Neo Geo version's voice clips and story narration play as CD audio through MD+. That works in Genesis Plus GX (RetroArch) and on MegaSD-compatible flash carts (but I haven't tested this!). You'll hear room entry lines, hostages calling for help and thanking you, weapon names, boss lines, and the narrated intro, story cutscenes and ending, all following the same playback logic as the Neo Geo ROM. The MD/Genesis music and sound effects play as normal underneath. No game audio is distributed: a Python script extracts the voices from your own copy of the Neo Geo ROM set.
+The Neo Geo version's voice clips and story narration play as CD audio through MD+. That works in Genesis Plus GX (RetroArch) and on MiSTer (MegaDrive core), and should work on MegaSD-compatible flash carts (but I haven't tested this!). You'll hear room entry lines, hostages calling for help and thanking you, weapon names, boss lines, and the narrated intro, story cutscenes and ending, all following the same playback logic as the Neo Geo ROM. The MD/Genesis music and sound effects play as normal underneath. No game audio is distributed: a Python script extracts the voices from your own copy of the Neo Geo ROM set.
 
 There are also new Options > AUDIO menu items allowing you to play the CD VOICE tracks and choose which cutscene voices you want to hear: ALL (like the Neo Geo), INTRO only (like the other modern consoles), or NONE (like the MD/Genesis).
 
@@ -52,15 +52,16 @@ There are also new Options > AUDIO menu items allowing you to play the CD VOICE 
 
 ## Patching
 
-Start from the [Mega Drive / Genesis ROM](https://shop.bitmapbureau.com/products/xeno-crisis-sega-mega-drive-genesis-rom-download), v1.0.0 (CRC32 `AC5F4CCA`). Use a patcher such as Floating IPS or [RomPatcher.js](https://www.marcrobledo.com/RomPatcher.js/). The all-in-one patch is a .bps, which checks that you have the right ROM before patching.
+Start from the [Mega Drive / Genesis ROM](https://shop.bitmapbureau.com/products/xeno-crisis-sega-mega-drive-genesis-rom-download), v1.0.0 (CRC32 `AC5F4CCA`). Use a patcher such as Floating IPS or [RomPatcher.js](https://www.marcrobledo.com/RomPatcher.js/).
 
-**Pick one** (the files are named `XenoCrisis_DefinitiveEdition_v1.1.0_...`):
+**Most people will just apply `XenoCrisis_DefinitiveEdition_v1.2.0_AllInOne.bps`.** It has everything, including the voice support, and checks that you have the right ROM before patching. The voice support does nothing until you add the voice tracks, so it plays fine without them.
 
-- **All-in-one** (`AllInOne.bps`): everything, including the voice support. Why *wouldn't* you want this one!??
-- **2 separate patches:** the main patch (`Main.ips`: controls, scoring, tables, options) and the MD+ Voices patch (`MDPlus_Voices.ips`). Use either on its own, or both, applied in either order. Both together give exactly the same ROM as the all-in-one patch.
-- **Controls + Pause only** (`Controls_Dreamcast.ips` or `Controls_Modern.ips`): just the roll fix with one rule set locked in (no menu), plus the pause stats (health, weapon and ammo, grenades, dog tags). The game's original scoring is untouched. These can also be combined with the MD+ Voices patch.
+The patches in the `individual/` folder (named `XenoCrisis_DefinitiveEdition_v1.2.0_...`) are for picking and mixing:
 
-The voice support does nothing until you add the voice tracks, so the all-in-one ROM plays fine without them.
+| File | What it is |
+|---|---|
+| `Main.ips` + `MDPlus_Voices.ips` | The all-in-one patch in two parts. Apply both, in either order, for exactly the same ROM. Each also works on its own, for example to add the voices to another mod. |
+| `Controls_Dreamcast.ips` or `Controls_Modern.ips` | Only the roll fix and pause stats, with one rule set locked in (no Options item). Can be combined with `MDPlus_Voices.ips`. |
 
 **Getting the voices (MD+):**
 
@@ -77,5 +78,10 @@ For the patched ROM checksums, exact controls, every voice line and more, see [D
 ## Support the developers
 
 Xeno Crisis is made by Bitmap Bureau, and this hack only exists because it's a great game. If you enjoy it, buy it (both versions!) and support our awesome retro developers. Please keep the generated voice files to yourself, and point friends to the shop instead.
+
+## Credits
+
+- **AI assistance:** I built this with Claude, Anthropic's AI assistant. The design, play-testing and every gameplay decision are mine; Claude wrote and debugged the code, build tools and test scripts, and helped draft these docs.
+- **Real-hardware testing:** thanks to nazareno4885 for finding the freeze on a Model 1 with an EverDrive X3, and to [zokisyxx](https://github.com/zokisyxx) for finding the voice looping on MiSTer. Neither problem showed up in emulators.
 
 This is an unofficial fan project, not affiliated with or endorsed by Bitmap Bureau.

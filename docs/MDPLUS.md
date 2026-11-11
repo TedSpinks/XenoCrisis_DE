@@ -6,7 +6,7 @@ These notes describe the optional MD+ voice feature added in v1.4 beta 1. MD+ me
 
 - The Mega Drive chiptunes and sound effects are unchanged. The Neo Geo voice clips play as CD audio tracks on top of them.
 - No game audio ships with the patch. `xc_voice_extract.py` decodes each player's own Neo Geo MAME set (v1.0.0, checked by CRC: m1 `28C13ED9`, v1 `60D57867`). It writes 77 tracks as 44.1 kHz stereo WAV files, plus a `.cue` named after the ROM.
-- Every track in the `.cue` carries `REM NOLOOP`. That keyword lets Genesis Plus GX switch on MegaSD emulation automatically.
+- Every track in the `.cue` carries `REM NOLOOP`, placed after the track's `INDEX 01` line. That keyword lets Genesis Plus GX switch on MegaSD emulation automatically. The order matters on MiSTer: its cue reader sets a track to loop when it reads `INDEX 01`, so a `REM NOLOOP` before it is overridden and every voice repeats.
 - All MD+ I/O happens in VBlank. The code patches `$470`, replacing the VBlank handler's `movea.l $FF4F4E,a0 / jsr (a0)` with `jsr mdp_vint`.
 - Event detection polls game state each frame instead of hooking each event. Only one other game hook is needed:
   - `$288C6`: the intro's `jmp $3E530` (music `$10`). With MD+, it stops the Mega Drive music instead, by writing `$80` to Z80 `$A00100` and `0` to `$A00113`.
