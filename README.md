@@ -1,6 +1,6 @@
 # Xeno Crisis: Definitive Edition!
 
-A ROM hack for the original Xeno Crisis on **Mega Drive / Genesis**, that brings together the best features of its later ports, and adds arcade-style high score tables for both difficulties.
+A ROM hack for the original Xeno Crisis on **Mega Drive / Genesis** that brings together the best features of its later ports and adds arcade-style high score tables for both difficulties.
 
 - **Roll while firing!** With your choice of rules: Modern or Dreamcast.
 - **The missing HUD!** Pausing shows all the stats the widescreen versions keep at the sides of the screen, plus both players' scores, the high score, and the difficulty.
